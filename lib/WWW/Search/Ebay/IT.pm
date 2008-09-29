@@ -1,5 +1,5 @@
 
-# $Id: IT.pm,v 2.3 2008/09/29 02:47:52 Martin Exp $
+# $Id: IT.pm,v 2.101 2008/09/29 04:04:03 Martin Exp $
 
 =head1 NAME
 
@@ -24,7 +24,7 @@ use warnings;
 use Carp;
 use base 'WWW::Search::Ebay';
 our
-$VERSION = do { my @r = (q$Revision: 2.3 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 2.101 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
 
 sub _native_setup_search
   {
@@ -105,4 +105,3 @@ sub _process_date_abbrevs
 1;
 
 __END__
-
