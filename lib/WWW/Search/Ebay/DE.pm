@@ -1,5 +1,5 @@
 
-# $Id: DE.pm,v 1.1.1.1 2008/06/30 02:04:04 Martin Exp $
+# $Id: DE.pm,v 2.2 2008/09/29 02:23:49 Martin Exp $
 
 =head1 NAME
 
@@ -24,7 +24,7 @@ use warnings;
 use Carp;
 use base 'WWW::Search::Ebay';
 our
-$VERSION = do { my @r = (q$Revision: 1.1.1.1 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 2.2 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
 
 sub _native_setup_search
   {
@@ -52,7 +52,7 @@ sub _result_count_element_specs_NOT_NEEDED
 
 sub _result_count_pattern
   {
-  return qr'(\d+) Artikel gefunden ';
+  return qr'(\d+)\s+(Artikel|Ergebnisse)\s+gefunden ';
   } # _result_count_pattern
 
 sub _next_text
@@ -83,7 +83,7 @@ sub _columns
   {
   my $self = shift;
   # This is for DE:
-  return qw( bids price shipping paypal enddate );
+  return qw( paypal bids price shipping enddate );
   } # _columns
 
 sub _process_date_abbrevs

@@ -1,6 +1,7 @@
 ---
+abstract: ~
 author:
-  - 'Martin Thurn <mthurn@cpan.org>'
+  - 'Martin Thurn'
 build_requires:
   Bit::Vector: 0
   Date::Manip: 0
@@ -10,11 +11,12 @@ build_requires:
   Test::Pod::Coverage: 0
   WWW::Search::Test: 2.265
 distribution_type: module
-generated_by: 'Module::Install version 0.76'
+generated_by: 'Module::Install version 0.77'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
+module_name: WWW::Search::Ebay::Europe
 name: WWW-Search-Ebay-Europe
 no_index:
   directory:
@@ -30,4 +32,4 @@ requires:
   perl: 5.005
 resources:
   license: http://dev.perl.org/licenses/
-version: 2.001
+version: 2.002

@@ -1,5 +1,5 @@
 
-# $Id: de.t,v 1.2 2008/08/03 02:29:27 Martin Exp $
+# $Id: de.t,v 1.4 2008/09/29 02:47:57 Martin Exp $
 
 use Bit::Vector;
 use Data::Dumper;
@@ -7,7 +7,7 @@ use ExtUtils::testlib;
 use Test::More no_plan;
 
 BEGIN { use_ok('Date::Manip') };
-&Date_Init('TZ=-0500');
+Date_Init('TZ=-0500');
 BEGIN { use_ok('WWW::Search') };
 BEGIN { use_ok('WWW::Search::Test') };
 BEGIN { use_ok('WWW::Search::Ebay::DE') };
@@ -17,30 +17,33 @@ use strict;
 my $iDebug;
 my $iDump = 0;
 
-&tm_new_engine('Ebay::DE');
-# goto DEBUG_NOW;
+tm_new_engine('Ebay::DE');
+goto DEBUG_NOW;
 # goto CONTENTS;
 
 diag("Sending 0-page query to ebay.de...");
 $iDebug = 0;
 # This test returns no results (but we should not get an HTTP error):
-&tm_run_test('normal', $WWW::Search::Test::bogus_query, 0, 0, $iDebug);
+tm_run_test('normal', $WWW::Search::Test::bogus_query, 0, 0, $iDebug);
 
-;
+DEBUG_NOW:
+pass;
 MULTI_RESULT:
+pass;
 diag("Sending multi-page query to ebay.de...");
 $iDebug = 0;
 $iDump = 0;
 # This query returns many of pages of results:
-&tm_run_test('normal', 'thurn', 101, undef, $iDebug);
+tm_run_test('normal', 'thurn', 111, undef, $iDebug);
+cmp_ok(1, '<', $WWW::Search::Test::oSearch->{requests_made}, 'got multiple pages');
 
-DEBUG_NOW:
-;
 CONTENTS:
+pass;
 diag("Sending 1-page query to ebay.de to check contents...");
 $iDebug = 0;
 $iDump = 0;
-&tm_run_test('normal', 'trinidad mnh', 1, 99, $iDebug, $iDump);
+$WWW::Search::Test::sSaveOnError = q{de-1-failed.html};
+tm_run_test('normal', 'trinidad mnh', 1, 99, $iDebug, $iDump);
 # Now get the results and inspect them:
 my @ao = $WWW::Search::Test::oSearch->results();
 cmp_ok(0, '<', scalar(@ao), 'got some results');
@@ -65,7 +68,7 @@ foreach my $oResult (@ao)
                               'result URL is really from ebay.de');
   $oV->Bit_Off(2) unless cmp_ok($oResult->title, 'ne', '',
                                 'result Title is not empty');
-  $oV->Bit_Off(3) unless cmp_ok(&ParseDate($oResult->change_date) || '',
+  $oV->Bit_Off(3) unless cmp_ok(ParseDate($oResult->change_date) || '',
                                 'ne', '',
                                 'change_date is really a date');
   $oV->Bit_Off(4) unless like($oResult->description,

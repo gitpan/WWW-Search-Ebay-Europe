@@ -1,5 +1,5 @@
 
-# $Id: UK.pm,v 1.1.1.1 2008/06/30 02:04:04 Martin Exp $
+# $Id: UK.pm,v 2.2 2008/09/29 02:23:39 Martin Exp $
 
 =head1 NAME
 
@@ -24,7 +24,7 @@ use warnings;
 use Carp;
 use base 'WWW::Search::Ebay';
 our
-$VERSION = do { my @r = (q$Revision: 1.1.1.1 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 2.2 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
 
 sub _native_setup_search
   {
@@ -72,10 +72,9 @@ sub _columns
   {
   my $self = shift;
   # This is for UK:
-  return qw( bids price postage paypal enddate );
+  return qw( paypal bids price postage enddate );
   } # _columns
 
 1;
 
 __END__
-

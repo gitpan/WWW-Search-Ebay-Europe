@@ -1,5 +1,5 @@
 
-# $Id: IT.pm,v 1.3 2008/08/03 02:47:24 Martin Exp $
+# $Id: IT.pm,v 2.3 2008/09/29 02:47:52 Martin Exp $
 
 =head1 NAME
 
@@ -24,7 +24,7 @@ use warnings;
 use Carp;
 use base 'WWW::Search::Ebay';
 our
-$VERSION = do { my @r = (q$Revision: 1.3 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 2.3 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
 
 sub _native_setup_search
   {
@@ -41,7 +41,7 @@ sub _native_setup_search
 
 # This is what we look_down for to find the HTML element that contains
 # the result count:
-sub _result_count_element_specs
+sub _result_count_element_specs_USE_PARENT
   {
   return (
           _tag => 'div',
@@ -52,13 +52,14 @@ sub _result_count_element_specs
 
 sub _result_count_pattern
   {
-  return qr'(\d+) (oggetti|inserzioni) trovat[ei] ';
+  return qr'(\d+)\s+(oggetti|inserzioni|risultati)\s+(trovat[ei]|per)\b';
   } # _result_count_pattern
+
 
 sub _next_text
   {
   # The text of the "Next" button, localized:
-  return 'Successivo';
+  return 'Avanti';
   } # _next_text
 
 sub _currency_pattern
