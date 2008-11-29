@@ -1,5 +1,5 @@
 
-# $Id: IT.pm,v 2.101 2008/09/29 04:04:03 Martin Exp $
+# $Id: IT.pm,v 2.102 2008/11/29 01:58:23 Martin Exp $
 
 =head1 NAME
 
@@ -24,7 +24,7 @@ use warnings;
 use Carp;
 use base 'WWW::Search::Ebay';
 our
-$VERSION = do { my @r = (q$Revision: 2.101 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 2.102 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
 
 sub _native_setup_search
   {
@@ -39,20 +39,10 @@ sub _native_setup_search
   return $self->SUPER::_native_setup_search($native_query, $rhOptsArg);
   } # _native_setup_search
 
-# This is what we look_down for to find the HTML element that contains
-# the result count:
-sub _result_count_element_specs_USE_PARENT
-  {
-  return (
-          _tag => 'div',
-          class => 'fpc'
-         );
-  } # _result_count_element_specs
-
 
 sub _result_count_pattern
   {
-  return qr'(\d+)\s+(oggetti|inserzioni|risultati)\s+(trovat[ei]|per)\b';
+  return qr'(\d+)\s+(oggetti|inserzioni|risultati)\s+(trovat[ei]|per)';
   } # _result_count_pattern
 
 

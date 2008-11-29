@@ -1,5 +1,5 @@
 
-# $rcs = ' $Id: Makefile.PL,v 1.2 2008/09/20 12:34:30 Martin Exp $ ';
+# $Id: Makefile.PL,v 1.3 2008/11/29 01:55:50 Martin Exp $
 
 use inc::Module::Install;
 
@@ -21,9 +21,10 @@ requires('WWW::Search' => 2.557);
 requires('WWW::Search::Ebay');
 # We need the version that has the bidder and seller methods:
 requires('WWW::SearchResult' => 2.067);
-# We need the version of WWW::Search::Test that exports its tm_
-# functions:
+# We need the version that exports its tm_ functions:
 test_requires('WWW::Search::Test' => 2.265);
+# We need the version with test_most_results():
+test_requires('WWW::Search::Test' => 2.284);
 
 WriteAll;
 

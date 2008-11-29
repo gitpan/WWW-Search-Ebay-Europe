@@ -1,6 +1,4 @@
 Changes
-de-1-failed.html
-fr-1-failed.html
 inc/Module/Install.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
@@ -9,13 +7,13 @@ inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
-it-1-failed.html
 lib/WWW/Search/Ebay/DE.pm
 lib/WWW/Search/Ebay/ES.pm
 lib/WWW/Search/Ebay/Europe.pm
 lib/WWW/Search/Ebay/FR.pm
 lib/WWW/Search/Ebay/IT.pm
 lib/WWW/Search/Ebay/UK.pm
+LICENSE
 Makefile.PL
 MANIFEST			This list of files
 META.yml
@@ -27,5 +25,3 @@ t/it.t
 t/pod-coverage.t
 t/pod.t
 t/uk.t
-uk-1-failed.html
-uk-multi-failed.html

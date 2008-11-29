@@ -9,7 +9,7 @@ build_requires:
   Test::More: 0
   Test::Pod: 0
   Test::Pod::Coverage: 0
-  WWW::Search::Test: 2.265
+  WWW::Search::Test: 2.284
 distribution_type: module
 generated_by: 'Module::Install version 0.77'
 license: perl
@@ -32,4 +32,4 @@ requires:
   perl: 5.005
 resources:
   license: http://dev.perl.org/licenses/
-version: 2.005
+version: 2.006
