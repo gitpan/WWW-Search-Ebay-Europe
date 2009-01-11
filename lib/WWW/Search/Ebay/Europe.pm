@@ -1,9 +1,9 @@
 
-# $rcs = ' $Id: Europe.pm,v 2.5 2008/11/29 02:21:01 Martin Exp $ ' ;
+# $rcs = ' $Id: Europe.pm,v 2.9 2009/01/11 15:36:55 Martin Exp $ ' ;
 
 =head1 NAME
 
-WWW::Search::Ebay::Europe
+WWW::Search::Ebay::Europe - search for auctions at European eBay sites
 
 =head1 DESCRIPTION
 
@@ -16,7 +16,7 @@ It is also used to control the version number of the distribution.
 
 =head1 AUTHOR
 
-Martin Thurn
+Martin Thurn c<mthurn@cpan.org>
 
 =head1 LICENSE
 
@@ -30,7 +30,7 @@ use strict;
 use warnings;
 
 our
-$VERSION = '2.006';
+$VERSION = '2.008';
 
 1;
 

@@ -1,7 +1,7 @@
 ---
-abstract: ~
+abstract: 'search for auctions at European eBay sites'
 author:
-  - 'Martin Thurn'
+  - 'Martin Thurn c<mthurn@cpan.org>'
 build_requires:
   Bit::Vector: 0
   Date::Manip: 0
@@ -32,4 +32,4 @@ requires:
   perl: 5.005
 resources:
   license: http://dev.perl.org/licenses/
-version: 2.006
+version: 2.008
