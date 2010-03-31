@@ -1,5 +1,5 @@
 
-# $Id: uk.t,v 1.6 2008/11/29 01:59:00 Martin Exp $
+# $Id: uk.t,v 1.7 2010-03-31 03:40:28 Martin Exp $
 
 use ExtUtils::testlib;
 use Test::More no_plan;

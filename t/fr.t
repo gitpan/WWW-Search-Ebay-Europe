@@ -1,5 +1,5 @@
 
-# $Id: fr.t,v 1.4 2008/11/29 01:58:59 Martin Exp $
+# $Id: fr.t,v 1.5 2010-03-31 03:40:20 Martin Exp $
 
 use ExtUtils::testlib;
 use Test::More no_plan;
@@ -40,7 +40,7 @@ diag("Sending 1-page query to ebay.fr to check contents...");
 $iDebug = 0;
 $iDump = 0;
 $WWW::Search::Test::sSaveOnError = q{fr-1-failed.html};
-tm_run_test('normal', 'trinidad', 1, 49, $iDebug, $iDump);
+tm_run_test('normal', 'trinidad', 1, 99, $iDebug, $iDump);
 # Now inspect the results:
 my $sBidPattern = 'bid\s'. $WWW::Search::Test::oSearch->_currency_pattern;
 my $qrBid = qr{\b$sBidPattern};

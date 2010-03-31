@@ -1,5 +1,5 @@
 
-# $rcs = ' $Id: Europe.pm,v 2.9 2009/01/11 15:36:55 Martin Exp $ ' ;
+# $rcs = ' $Id: Europe.pm,v 2.10 2010-03-31 00:14:05 Martin Exp $ ' ;
 
 =head1 NAME
 
@@ -16,7 +16,7 @@ It is also used to control the version number of the distribution.
 
 =head1 AUTHOR
 
-Martin Thurn c<mthurn@cpan.org>
+Martin 'Kingpin' Thurn, C<mthurn at cpan.org>, L<http://tinyurl.com/nn67z>.
 
 =head1 LICENSE
 
@@ -30,7 +30,7 @@ use strict;
 use warnings;
 
 our
-$VERSION = '2.008';
+$VERSION = '2.009';
 
 1;
 

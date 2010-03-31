@@ -1,5 +1,5 @@
 
-# $Id: de.t,v 1.5 2008/11/29 01:58:59 Martin Exp $
+# $Id: de.t,v 1.6 2010-03-31 03:39:50 Martin Exp $
 
 use ExtUtils::testlib;
 use Test::More no_plan;
@@ -40,7 +40,7 @@ diag("Sending 1-page query to ebay.de to check contents...");
 $iDebug = 0;
 $iDump = 0;
 $WWW::Search::Test::sSaveOnError = q{de-1-failed.html}; # }; # Emacs bug
-tm_run_test('normal', 'trinidad mnh', 1, 99, $iDebug, $iDump);
+tm_run_test('normal', 'trinidad flagge', 1, 99, $iDebug, $iDump);
 # Now inspect the results:
 my $sBidPattern = 'bid\s'. $WWW::Search::Test::oSearch->_currency_pattern .'\s?[,.0-9]+';
 my $qrBid = qr{\b$sBidPattern};

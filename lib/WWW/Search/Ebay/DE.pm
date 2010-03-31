@@ -1,9 +1,18 @@
 
-# $Id: DE.pm,v 2.101 2008/09/29 04:03:18 Martin Exp $
+# $Id: DE.pm,v 2.102 2010-03-31 03:37:34 Martin Exp $
 
 =head1 NAME
 
 WWW::Search::Ebay::DE - backend for searching auctions at www.ebay.de
+
+=head1 SYNOPSIS
+
+  use WWW::Search;
+  my $oSearch = new WWW::Search('Ebay::DE');
+  my $sQuery = WWW::Search::escape_query("Yakface");
+  $oSearch->native_query($sQuery);
+  while (my $oResult = $oSearch->next_result())
+    { print $oResult->url, "\n"; }
 
 =head1 DESCRIPTION
 
@@ -11,8 +20,7 @@ Acts just like WWW::Search::Ebay.
 
 =head1 AUTHOR
 
-C<WWW::Search::Ebay::DE> was written by and is maintained by
-Martin Thurn C<mthurn@cpan.org>, L<http://tinyurl.com/nn67z>.
+Martin 'Kingpin' Thurn, C<mthurn at cpan.org>, L<http://tinyurl.com/nn67z>.
 
 =cut
 
@@ -24,7 +32,7 @@ use warnings;
 use Carp;
 use base 'WWW::Search::Ebay';
 our
-$VERSION = do { my @r = (q$Revision: 2.101 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 2.102 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
 
 sub _native_setup_search
   {
@@ -69,10 +77,20 @@ sub _currency_pattern
   return qr{(?:US\s?\$|£|EUR)}; # } } # Emacs indentation bugfix
   } # _currency_pattern
 
-sub _preprocess_results_page_OFF
+=head2 preprocess_results_page
+
+Tweak the HTML to make it easy to parse
+
+=cut
+
+sub preprocess_results_page
   {
   my $self = shift;
   my $sPage = shift;
+  # Make it easy to parse the shipping portion of the list:
+  $sPage =~ s!(<span\s(class="ship[^"]*")>)!</td><td $2>$1!g;
+  # print STDERR $sPage;
+  return $self->SUPER::preprocess_results_page($sPage);
   # print STDERR Dumper($self->{response});
   # For debugging:
   print STDERR $sPage;
@@ -83,7 +101,7 @@ sub _columns
   {
   my $self = shift;
   # This is for DE:
-  return qw( paypal bids price shipping enddate );
+  return qw( seller paypal bids price shipping enddate );
   } # _columns
 
 sub _process_date_abbrevs

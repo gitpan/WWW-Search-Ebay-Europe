@@ -1,9 +1,18 @@
 
-# $Id: IT.pm,v 2.102 2008/11/29 01:58:23 Martin Exp $
+# $Id: IT.pm,v 2.103 2010-03-31 03:36:24 Martin Exp $
 
 =head1 NAME
 
 WWW::Search::Ebay::IT - backend for searching auctions at eBay Italy
+
+=head1 SYNOPSIS
+
+  use WWW::Search;
+  my $oSearch = new WWW::Search('Ebay::IT');
+  my $sQuery = WWW::Search::escape_query("Yakface");
+  $oSearch->native_query($sQuery);
+  while (my $oResult = $oSearch->next_result())
+    { print $oResult->url, "\n"; }
 
 =head1 DESCRIPTION
 
@@ -11,8 +20,7 @@ Acts just like WWW::Search::Ebay.
 
 =head1 AUTHOR
 
-C<WWW::Search::Ebay::IT> was written by and is maintained by
-Martin Thurn C<mthurn@cpan.org>, L<http://tinyurl.com/nn67z>.
+Martin 'Kingpin' Thurn, C<mthurn at cpan.org>, L<http://tinyurl.com/nn67z>.
 
 =cut
 
@@ -24,7 +32,7 @@ use warnings;
 use Carp;
 use base 'WWW::Search::Ebay';
 our
-$VERSION = do { my @r = (q$Revision: 2.102 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 2.103 $ =~ /\d+/g); sprintf "%d."."%03d" x $#r, @r };
 
 sub _native_setup_search
   {
