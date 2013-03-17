@@ -1,0 +1,6 @@
+2010-03-30  Kingpin  <Martin@BLUEMAX>
+
+	* lib/WWW/Search/Ebay/DE.pm (preprocess_results_page): fixed parser & columns
+
+	* lib/WWW/Search/Ebay/UK.pm (_columns): fixed columns for new web layout
+
